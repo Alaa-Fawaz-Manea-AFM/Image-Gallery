@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <span class="prev hidden">
+        <img
+          src="./images/arrow-next.svg"
+          alt="arrow-prev"
+          class="rotate icon"
+        />
+      </span>
+      <div class="slider">
+        <span class="images">
+          <div class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </div>
+          <img src="./images/1.jpg" alt="img_1" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/2.jpg" alt="img_2" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/3.jpg" alt="img_3" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/4.jpg" alt="img_4" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/5.jpg" alt="img_5" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/6.jpg" alt="img_6" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/7.jpg" alt="img_7" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/8.jpg" alt="img_8" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/9.jpg" alt="img_9" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/10.jpg" alt="img_10" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/11.jpg" alt="img_11" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/12.jpg" alt="img_12" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/13.jpg" alt="img_13" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/14.jpg" alt="img_14" />
+        </span>
+        <span class="images">
+          <span class="open_img">
+            <img src="./images/select-square.svg" alt="select-square" />
+          </span>
+          <img src="./images/15.jpg" alt="img_15" />
+        </span>
+      </div>
+      <span class="next hidden">
+        <img src="./images/arrow-next.svg" alt="arrow-next" class="icon" />
+      </span>
+
+      <div class="popup_img">
+        <div class="close_popup">
+          <img src="./images/close-circle.svg" alt="close-circle" />
+        </div>
+        <div class="popup_image_gallery">
+          <img src="" alt="" />
+        </div>
+      </div>
+    </main>
+
+    <script>
+      let slider = document.querySelector(".slider");
+      let backBtn = document.querySelector(".prev");
+      let nextBtn = document.querySelector(".next");
+
+      let open_img_Btn = document.querySelector(".open_img");
+
+      nextBtn.addEventListener("click", () => {
+        slider.scrollLeft += 640;
+      });
+
+      backBtn.addEventListener("click", () => {
+        slider.scrollLeft -= 640;
+      });
+
+      // open popup
+
+      let all_Images = document.querySelectorAll(".slider .images .open_img");
+      let popup_img = document.querySelector(".popup_img");
+      let closePopup_Btn = document.querySelector(".close_popup");
+
+      closePopup_Btn.addEventListener("click", () => {
+        popup_img.style.display = "none";
+      });
+
+      all_Images.forEach((img) => {
+        img.onclick = () => {
+          document.querySelector(".popup_img").style.display = "block";
+          document.querySelector(".popup_image_gallery img").src =
+            img.nextElementSibling.src;
+        };
+      });
+    </script>
+  </body>
+</html>
